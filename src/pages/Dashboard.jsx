@@ -120,7 +120,7 @@ function Dashboard() {
     (id, newText) => {
       if (newText.trim() === "") return;
 
-      fetch(`${BASE_URL}/tasks${id}`, {
+      fetch(`${BASE_URL}/tasks/${id}`, {
         method: "PATCH",
         headers: getAuthHeaders(),
         body: JSON.stringify({ text: newText }),
