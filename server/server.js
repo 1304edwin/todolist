@@ -21,14 +21,14 @@ app.use(
 );
 app.use(express.json());
 
+//Rutas de tareas
+app.use("/tasks", taskRoutes);
+app.use("/auth", authRoutes);
+
 //Ruta de prueba
 app.get("/", (req, res) => {
   res.send("Servidor funcionando");
 });
-
-//Rutas de tareas
-app.use("/tasks", taskRoutes);
-app.use("/auth", authRoutes);
 
 //Levantar servidor
 app.listen(PORT, () => {
