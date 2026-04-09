@@ -91,7 +91,7 @@ function Dashboard() {
       const task = tasks.find((t) => t._id === id);
       if (!task) return;
 
-      fetch(`${BASE_URL}/tasks${id}`, {
+      fetch(`${BASE_URL}/tasks/${id}`, {
         method: "PATCH",
         headers: getAuthHeaders(),
         body: JSON.stringify({ completed: !task.completed }),
