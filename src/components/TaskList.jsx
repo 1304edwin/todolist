@@ -20,8 +20,9 @@ function TaskList({
 
     try {
       const token = localStorage.getItem("token");
+      const BASE_URL = "https://todolist-beei.onrender.com";
 
-      const response = await fetch("http://localhost:5000/tasks/reorder", {
+      const response = await fetch(`${BASE_URL}/tasks/reorder`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
