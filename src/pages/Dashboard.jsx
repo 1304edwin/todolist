@@ -10,6 +10,7 @@ function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
+  const BASE_URL = "https://todolist-beei.onrender.com";
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -19,7 +20,7 @@ function Dashboard() {
       return;
     }
 
-    fetch("http://localhost:5000/tasks", {
+    fetch(`${BASE_URL}/tasks`, {
       headers: getAuthHeaders(),
     })
       .then((res) => {
@@ -43,7 +44,7 @@ function Dashboard() {
 
       const newTask = { text, completed: false };
 
-      fetch(`http://localhost:5000/tasks`, {
+      fetch(`${BASE_URL}/tasks`, {
         method: "POST",
         headers: getAuthHeaders(),
         body: JSON.stringify(newTask),
@@ -69,7 +70,7 @@ function Dashboard() {
 
   const deleteTask = useCallback(
     (id) => {
-      fetch(`http://localhost:5000/tasks/${id}`, {
+      fetch(`${BASE_URL}/tasks/${id}`, {
         method: "DELETE",
         headers: getAuthHeaders(),
       }).then((res) => {
@@ -90,7 +91,7 @@ function Dashboard() {
       const task = tasks.find((t) => t._id === id);
       if (!task) return;
 
-      fetch(`http://localhost:5000/tasks/${id}`, {
+      fetch(`${BASE_URL}/tasks${id}`, {
         method: "PATCH",
         headers: getAuthHeaders(),
         body: JSON.stringify({ completed: !task.completed }),
@@ -119,7 +120,7 @@ function Dashboard() {
     (id, newText) => {
       if (newText.trim() === "") return;
 
-      fetch(`http://localhost:5000/tasks/${id}`, {
+      fetch(`${BASE_URL}/tasks${id}`, {
         method: "PATCH",
         headers: getAuthHeaders(),
         body: JSON.stringify({ text: newText }),
