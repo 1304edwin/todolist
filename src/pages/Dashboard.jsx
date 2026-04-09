@@ -20,7 +20,7 @@ function Dashboard() {
       return;
     }
 
-    fetch(`${BASE_URL}/tasks`, {
+    fetch("${BASE_URL}/tasks", {
       headers: getAuthHeaders(),
     })
       .then((res) => {
