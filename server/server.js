@@ -15,7 +15,11 @@ const PORT = process.env.PORT || 5000;
 //Middlewares
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://todolist-beei.onrender.com"],
+    origin: [
+      "http://localhost:5173",
+      "https://todolist-beei.onrender.com",
+      "https://todolist-jox3fwq7x-1304edwins-projects.vercel.app",
+    ],
     credentials: true,
   }),
 );
