@@ -18,7 +18,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://todolist-beei.onrender.com",
-      "https://todolist-jox3fwq7x-1304edwins-projects.vercel.app",
+      "https://todolist-j7bghjz7r-1304edwins-projects.vercel.app",
     ],
     credentials: true,
   }),
