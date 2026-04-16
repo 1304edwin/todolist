@@ -7,6 +7,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [isRegister, setIsRegister] = useState(false);
   const [error, setError] = useState("");
+  const BASE_URL = "https://todolist-beei.onrender.com";
 
   const navigate = useNavigate();
 
@@ -17,7 +18,7 @@ function Login() {
     const endpoint = isRegister ? "register" : "login";
 
     try {
-      const res = await fetch(`http://localhost:5000/auth/${endpoint}`, {
+      const res = await fetch(`${BASE_URL}/auth/${endpoint}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
